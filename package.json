@@ -1,0 +1,21 @@
+{
+  "name": "react-native-template-superop",
+  "version": "0.0.0",
+  "description": "React Native template with linters and TypeScript",
+  "files": [
+    "template",
+    "template.config.js"
+  ],
+  "license": "MIT",
+  "author": "DiogoAbu",
+  "repository": "github:DiogoAbu/react-native-template-superop",
+  "homepage": "https://github.com/DiogoAbu/react-native-template-superop",
+  "bugs": "https://github.com/DiogoAbu/react-native-template-superop/issues",
+  "keywords": [
+    "react-native",
+    "typescript",
+    "jest",
+    "template",
+    "boilerplate"
+  ]
+}

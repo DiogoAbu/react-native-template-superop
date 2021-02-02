@@ -1,14 +1,14 @@
-/**
- * @format
- */
-
 import 'react-native';
+
 import React from 'react';
-import App from '../App';
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+import renderer, { act } from 'react-test-renderer';
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+import App from '../src/App';
+
+it('renders correctly', async () => {
+  // eslint-disable-next-line @typescript-eslint/require-await
+  await act(async () => {
+    renderer.create(<App />);
+  });
 });

@@ -1,6 +1,6 @@
 {
   "name": "HelloWorld",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "rn": "react-native",
@@ -81,7 +81,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
-    "eslint-config-superop": "^0.2.0",
+    "eslint-config-superop": "^0.2.1",
     "eslint-import-resolver-babel-module": "^5.2.0",
     "eslint-import-resolver-typescript": "^2.3.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -114,6 +114,17 @@
       "jsx",
       "json",
       "node"
+    ],
+    "setupFiles": [
+      "./jest.setup.js",
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation|@react-native-community\\masked-view|react-native-reanimated/.*))"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
     ]
   },
   "license": "GPL-3.0-or-later"

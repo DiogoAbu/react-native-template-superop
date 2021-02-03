@@ -6,11 +6,10 @@ Clean React Native template with linters and TypeScript.
 ## Features
 
 - Usage directly within the [React Native CLI](https://github.com/react-native-community/cli)
-- Consistent with the default React Native template
 - React-navigation
 - Vector icons
 - TypeScript
-- ESLint and Prettier
+- ESLint and Prettier using [eslint-config-superop](https://github.com/DiogoAbu/eslint-config-superop)
 - Husky and Lint-staged
 - Semantic-release
 - VSCode ready

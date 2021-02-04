@@ -3,14 +3,21 @@ import { StyleSheet } from 'react-native';
 import theme from '!/services/theme';
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  contentContainer: {
+    flexGrow: 1,
+  },
+
+  headerContent: {
     margin: theme.smallGrid,
     padding: theme.grid,
   },
-  text: {
+  headerText: {
+    color: theme.colors.text,
+    textAlign: 'center',
+  },
+
+  itemText: {
+    padding: theme.grid,
     color: theme.colors.text,
   },
 });

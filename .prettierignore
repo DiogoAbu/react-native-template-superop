@@ -33,5 +33,3 @@ generated/**
 !.commitlintrc.js
 !.releaserc.json
 
-template/
-template/**

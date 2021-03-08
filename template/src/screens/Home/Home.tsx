@@ -1,10 +1,7 @@
 import React, { FC } from 'react';
 import { FlatList, Text, View } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
-
 import Separator from '!/components/Separator';
-import { MainNavigationProp } from '!/types';
 
 import HomeItem from './HomeItem';
 import styles from './styles';
@@ -12,8 +9,6 @@ import styles from './styles';
 const keyExtractor = (_item: number, index: number) => index.toString();
 
 const Home: FC = () => {
-  const navigation = useNavigation<MainNavigationProp<'Home'>>();
-
   return (
     <FlatList
       data={Array(20)}
@@ -22,13 +17,13 @@ const Home: FC = () => {
       ListHeaderComponent={
         <>
           <View style={styles.headerContent}>
-            <Text style={styles.headerText}>Welcome to Test!</Text>
+            <Text style={styles.headerText}>Welcome to HelloWorld!</Text>
           </View>
 
           <Separator />
         </>
       }
-      renderItem={HomeItem}
+      renderItem={(props) => <HomeItem {...props} />}
       style={styles.contentContainer}
     />
   );

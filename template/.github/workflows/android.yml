@@ -1,0 +1,118 @@
+name: Build Android
+
+on:
+  workflow_dispatch:
+    inputs:
+      checkoutRef:
+        description: "Tag or SHA ref to checkout"
+        required: false
+        default: ""
+  release:
+    types:
+      - published
+
+env:
+  node-version: "12"
+  java-version: "1.8"
+
+jobs:
+  release:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.inputs.checkoutRef }}
+
+      - name: Increase watchers to fix Docker
+        run: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ env.java-version }}
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+        working-directory: ./android
+
+      - name: Cache Gradle
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: ${{ runner.os }}-gradle-
+
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.node-version }}
+
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn install --prefer-offline --frozen-lockfile --silent
+
+      - name: Get version
+        id: get-version
+        run: echo ::set-output name=version::$(node -p "'v'+require('./package.json').version")
+
+      - name: Display version
+        run: echo ${{ steps.get-version.outputs.version }}
+
+      - name: Get prerelease
+        id: get-prerelease
+        run: echo ::set-output name=is-prerelease::$(node -p "!!require('semver/functions/prerelease')('${{ steps.get-version.outputs.version }}')")
+
+      - name: Display prerelease
+        run: echo ${{ steps.get-prerelease.outputs.is-prerelease }}
+
+      - name: Decrypt release keystore
+        run: |
+          echo "$RELEASE_JKS" | base64 --decode > ./android/app/release.jks
+          chmod 600 ./android/app/release.jks
+        env:
+          RELEASE_JKS: ${{ secrets.RELEASE_JKS }}
+
+      - name: Decrypt google services
+        run: |
+          [[ -z "$GOOGLE_SERVICES" ]] && exit 0
+          echo "$GOOGLE_SERVICES" | base64 --decode > ./android/app/google-services.json
+          chmod 600 ./android/app/google-services.json
+        env:
+          GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES }}
+
+      - name: Decrypt dotenv for staging or production
+        run: |
+          [[ -z "$DOTENV" ]] && exit 0
+          echo "$DOTENV" | base64 --decode > ./.env
+          chmod 600 ./.env
+        env:
+          DOTENV: ${{ (steps.get-prerelease.outputs.is-prerelease == 'true' && secrets.DOTENV_STAGING) || secrets.DOTENV_PROD }}
+
+      - name: Generate APK
+        run: ./gradlew assembleRelease --no-daemon
+        working-directory: ./android
+        env:
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+
+      - name: Upload APK to Release tagged with current version
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: "./android/app/build/outputs/apk/release/*.apk"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ steps.get-version.outputs.VERSION }}

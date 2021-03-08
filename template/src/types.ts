@@ -4,6 +4,9 @@ import { StackNavigationProp } from '@react-navigation/stack';
 // Main Stack Screens with Parameters
 export type MainStackParams = {
   Home: undefined;
+  Details: {
+    index: number;
+  };
 };
 
 // Navigation prop for Main Stack screens

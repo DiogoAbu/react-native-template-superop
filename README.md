@@ -49,6 +49,7 @@ It serves as a start point to your new app.
   npx react-native init MyApp --template react-native-template-superop
   ```
 - When asked to enter the url, paste it and press enter.
+- Open the TEMPLATE.md file to see other configurations you can make.
 
 ## 💬 Contributing
 

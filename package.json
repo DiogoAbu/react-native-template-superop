@@ -23,7 +23,7 @@
     }
   },
   "lint-staged": {
-    "*.{j,t}s{,x}": "eslint --config ./.eslintrc --cache --fix --max-warnings 0",
+    "*.{j,t}s{,x}": "eslint --config ./.eslintrc --cache --fix",
     "*.json": "prettier --config ./.prettierrc --write"
   },
   "devDependencies": {

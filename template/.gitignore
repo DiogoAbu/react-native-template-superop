@@ -431,6 +431,14 @@ web-build/
 # We use yarn
 package-*.json
 
-# Ignore dotenv
-.env
+# Ignore all dotenv files but the example
+.env.*
 !.env.example
+
+# Keystore files
+*.jks
+*.keystore
+!debug.jks
+
+# Google Services
+google-services.json

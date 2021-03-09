@@ -4,7 +4,8 @@
   "description": "React Native template with linters and TypeScript",
   "files": [
     "template",
-    "template.config.js"
+    "template.config.js",
+    "postInitScript.js"
   ],
   "scripts": {
     "eslint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0 --config ./.eslintrc",

@@ -11,7 +11,7 @@ const Text: FC<Props> = ({ children, style, ...rest }) => {
   const { colors } = useTheme();
 
   return (
-    <NativeText {...rest} style={[style, { color: colors.text }]}>
+    <NativeText {...rest} style={[{ color: colors.text }, style]}>
       {children}
     </NativeText>
   );

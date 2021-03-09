@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 
 import Separator from '!/components/Separator';
+import Text from '!/components/Text';
+import useStatusBarStyle from '!/hooks/use-status-bar-style';
 
 import HomeItem from './HomeItem';
 import styles from './styles';
@@ -9,6 +11,8 @@ import styles from './styles';
 const keyExtractor = (_item: number, index: number) => index.toString();
 
 const Home: FC = () => {
+  useStatusBarStyle();
+
   return (
     <FlatList
       data={Array(20)}
@@ -17,7 +21,7 @@ const Home: FC = () => {
       ListHeaderComponent={
         <>
           <View style={styles.headerContent}>
-            <Text style={styles.headerText}>Welcome to HelloWorld!</Text>
+            <Text style={styles.headerText}>Welcome to TestApp!</Text>
           </View>
 
           <Separator />

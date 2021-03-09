@@ -1,8 +1,9 @@
 import React from 'react';
-import { ListRenderItem, Text, TouchableOpacity } from 'react-native';
+import { ListRenderItem, TouchableOpacity } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
 
+import Text from '!/components/Text';
 import usePress from '!/hooks/use-press';
 import { MainNavigationProp } from '!/types';
 

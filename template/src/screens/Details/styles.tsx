@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import theme from '!/services/theme';
+import { constants } from '!/services/theme';
 
 const styles = StyleSheet.create({
   contentContainer: {
@@ -8,8 +8,7 @@ const styles = StyleSheet.create({
   },
 
   itemText: {
-    padding: theme.grid,
-    color: theme.colors.text,
+    padding: constants.grid,
   },
 });
 

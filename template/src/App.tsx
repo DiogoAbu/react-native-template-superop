@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
+import { useColorScheme } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 
 import MainStack from './navigators/MainStack';
-import theme from './services/theme';
-import setStatusBarStyle from './utils/set-status-bar-style';
-
-setStatusBarStyle();
+import { darkTheme, lightTheme } from './services/theme';
 
 const App: FC = () => {
+  const colorScheme = useColorScheme();
+
   return (
-    <NavigationContainer theme={theme}>
+    <NavigationContainer theme={colorScheme === 'dark' ? darkTheme : lightTheme}>
       <MainStack />
     </NavigationContainer>
   );

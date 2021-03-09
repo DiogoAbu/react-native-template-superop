@@ -1,17 +1,18 @@
 import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import theme from '!/services/theme';
+import { useTheme } from '@react-navigation/native';
 
 const Separator: FC = () => {
-  return <View style={styles.line} />;
+  const { colors } = useTheme();
+
+  return <View style={[styles.line, { backgroundColor: colors.border }]} />;
 };
 
 const styles = StyleSheet.create({
   line: {
     width: '100%',
     height: StyleSheet.hairlineWidth,
-    backgroundColor: theme.colors.border,
   },
 });
 

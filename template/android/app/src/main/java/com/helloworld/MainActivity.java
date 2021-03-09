@@ -1,6 +1,7 @@
 package com.helloworld;
 
 import android.os.Bundle;
+import android.content.res.Configuration;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -18,6 +19,14 @@ public class MainActivity extends ReactActivity {
   }
 
   @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
+
+  /**
+   * Gesture handler config
+   */
+  @Override
   protected ReactActivityDelegate createReactActivityDelegate() {
     return new ReactActivityDelegate(this, getMainComponentName()) {
       @Override
@@ -27,8 +36,12 @@ public class MainActivity extends ReactActivity {
     };
   }
 
+  /**
+   * Fix react-native appearence module
+   */
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    getReactInstanceManager().onConfigurationChanged(this, newConfig);
   }
 }

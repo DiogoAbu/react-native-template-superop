@@ -1,14 +1,18 @@
 import React, { FC } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import { useRoute } from '@react-navigation/core';
 
+import Text from '!/components/Text';
+import useStatusBarStyle from '!/hooks/use-status-bar-style';
 import { MainRouteProp } from '!/types';
 
 import styles from './styles';
 
 const Details: FC = () => {
   const { params } = useRoute<MainRouteProp<'Details'>>();
+
+  useStatusBarStyle();
 
   return (
     <ScrollView style={styles.contentContainer}>

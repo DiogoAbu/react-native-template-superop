@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import theme from '!/services/theme';
+import { constants } from '!/services/theme';
 
 const styles = StyleSheet.create({
   contentContainer: {
@@ -8,17 +8,15 @@ const styles = StyleSheet.create({
   },
 
   headerContent: {
-    margin: theme.smallGrid,
-    padding: theme.grid,
+    margin: constants.smallGrid,
+    padding: constants.grid,
   },
   headerText: {
-    color: theme.colors.text,
     textAlign: 'center',
   },
 
   itemText: {
-    padding: theme.grid,
-    color: theme.colors.text,
+    padding: constants.grid,
   },
 });
 

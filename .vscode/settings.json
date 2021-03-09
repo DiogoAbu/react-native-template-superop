@@ -28,6 +28,7 @@
   },
   "conventionalCommits.autoCommit": false,
   "conventionalCommits.gitmoji": true,
+  "conventionalCommits.scopes": ["template"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

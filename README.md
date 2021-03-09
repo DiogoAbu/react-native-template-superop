@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/facebook/react-native/blob/master/LICENSE">
+  <a href="https://github.com/DiogoAbu/react-native-template-superop/actions">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/DiogoAbu/react-native-template-superop/Generate%20Release%20and%20Publish%20to%20NPM?label=Generate%20Release%20and%20Publish%20to%20NPM&style=flat-square">
   </a>
 </p>

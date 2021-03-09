@@ -1827,10 +1827,10 @@ eslint-config-prettier@8.1.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.1.0.tgz#4ef1eaf97afe5176e6a75ddfb57c335121abc5a6"
   integrity sha512-oKMhGv3ihGbCIimCAjqkdzx2Q+jthoqnXSP+d86M9tptwugycmTFdVR4IpLgq2c4SHifbwO90z2fQ8/Aio73yw==
 
-eslint-config-superop@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-superop/-/eslint-config-superop-0.2.1.tgz#de10637e53c723e4db8f575bb67d289303d94549"
-  integrity sha512-NVz89ee7eiV5BAdMgk4bNqV0l/K3d8pjbXBip+3ocgCbPnTCnLbwmvZTJoLmpu/gwVkxokOt4DgX6DTXuipcvA==
+eslint-config-superop@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-superop/-/eslint-config-superop-0.2.2.tgz#1e658d2f01dd55682e8264f2a51c615493ccded8"
+  integrity sha512-gFakkuUpca4r6002ITXtETdYI+Ly2Hel+BwFsc7IxvH/jJqGwC6OSvxw03YB1yi9T58HguS3iGe0HL4y7vJkWQ==
 
 eslint-import-resolver-babel-module@5.2.0:
   version "5.2.0"

@@ -1,12 +1,16 @@
 import React, { FC } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 import { useTheme } from '@react-navigation/native';
 
-const Separator: FC = () => {
+interface Props {
+  style: StyleProp<ViewStyle>;
+}
+
+const Separator: FC<Props> = ({ style }) => {
   const { colors } = useTheme();
 
-  return <View style={[styles.line, { backgroundColor: colors.border }]} />;
+  return <View style={[styles.line, { backgroundColor: colors.border }, style]} />;
 };
 
 const styles = StyleSheet.create({

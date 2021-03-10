@@ -40,5 +40,7 @@
       "mode": "auto"
     }
   ],
-  "tslint.enable": false
+  "tslint.enable": false,
+  "xmlTools.enforcePrettySelfClosingTagOnFormat": true,
+  "xmlTools.splitAttributesOnFormat": true
 }

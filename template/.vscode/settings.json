@@ -34,5 +34,7 @@
   "editor.formatOnSave": true,
   "eslint.format.enable": true,
   "eslint.onIgnoredFiles": "warn",
-  "tslint.enable": false
+  "tslint.enable": false,
+  "xmlTools.enforcePrettySelfClosingTagOnFormat": true,
+  "xmlTools.splitAttributesOnFormat": true
 }

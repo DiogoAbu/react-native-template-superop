@@ -442,3 +442,6 @@ package-*.json
 
 # Google Services
 google-services.json
+
+# Java
+*.hprof

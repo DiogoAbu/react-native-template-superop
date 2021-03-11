@@ -18,3 +18,6 @@
   **[] $VALUES;
   public *;
 }
+
+## https://github.com/software-mansion/react-native-reanimated
+-keep class com.facebook.react.turbomodule.** { *; }

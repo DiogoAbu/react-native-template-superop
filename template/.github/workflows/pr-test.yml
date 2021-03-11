@@ -11,7 +11,7 @@ env:
 
 jobs:
   publish:
-    name: Test
+    name: Test PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo
@@ -55,7 +55,7 @@ jobs:
       - name: Start test
         run: yarn test --ci --onlyChanged --coverage --json --outputFile=jest.results.json
 
-      - name: Start test
+      - name: Handle test results
         uses: wildone/jest-github-action@45e8796f0fbf3491a8657de9d2b3f13f75de9a7d
         with:
           process-only: true

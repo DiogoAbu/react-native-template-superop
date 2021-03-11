@@ -17,7 +17,7 @@ env:
 
 jobs:
   release:
-    name: Build
+    name: Build Android
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo

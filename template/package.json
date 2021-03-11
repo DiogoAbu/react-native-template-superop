@@ -26,7 +26,7 @@
     "prettier": "prettier .releaserc.json \".vscode/**/*.json\" \"**/*.{json,eslintrc,prettierrc}\" --config ./.prettierrc --check",
     "lint": "yarn eslint && yarn prettier",
     "lint-fix": "yarn eslint --fix && yarn prettier --write",
-    "rn-version": "react-native-version --generate-build --never-amend --skip-tag --never-increment-build",
+    "rn-version": "react-native-version --generate-build --never-amend --skip-tag",
     "fix-lockfile": "node ./scripts/fix-lockfile.js",
     "postinstall": "patch-package && npx jetify"
   },
@@ -69,6 +69,7 @@
     "@graphql-codegen/typescript-urql": "^2.0.4",
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
+    "@testing-library/jest-native": "^4.0.1",
     "@testing-library/react-native": "^7.2.0",
     "@types/jest": "^26.0.20",
     "@types/react-native": "^0.63.51",
@@ -93,7 +94,17 @@
     "typescript": "^4.2.3"
   },
   "jest": {
-    "preset": "react-native",
+    "preset": "./jest/jest-preset.js",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "setupFiles": [
+      "./jest/jest-setup.js",
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation|@react-native-community\\masked-view|react-native-reanimated/.*))"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -101,13 +112,6 @@
       "jsx",
       "json",
       "node"
-    ],
-    "setupFiles": [
-      "./jest.setup.js",
-      "./node_modules/react-native-gesture-handler/jestSetup.js"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|react-navigation|@react-navigation|@react-native-community\\masked-view|react-native-reanimated/.*))"
     ],
     "coverageReporters": [
       "text",

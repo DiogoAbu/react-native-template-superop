@@ -1,6 +1,6 @@
 {
   "name": "react-native-template-superop",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "React Native template with linters and TypeScript",
   "files": [
     "template",

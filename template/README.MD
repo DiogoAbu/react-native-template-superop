@@ -8,21 +8,21 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/#CHANGE_GITHUB_USER/#CHANGE_GITHUB_REPO/releases">
+  <a href="https://github.com/#CHANGE_GITHUB_USER/#CHANGE_GITHUB_REPO/releases/latest">
     <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/#CHANGE_GITHUB_USER/#CHANGE_GITHUB_REPO?sort=semver&style=flat-square">
   </a>
-  <a href="https://github.com/#CHANGE_GITHUB_USER/#CHANGE_GITHUB_REPO/actions">
+  <a href="https://github.com/#CHANGE_GITHUB_USER/#CHANGE_GITHUB_REPO/actions/workflows/android.yml">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/#CHANGE_GITHUB_USER/#CHANGE_GITHUB_REPO/Build%20Android?label=Build%20Android&style=flat-square">
   </a>
 </p>
 
 <p align="center">
-  <a href="#CHANGE_ITUNES_APP_STORE_LINK">
-    <img alt="Download on the App Store" title="App Store" src="http://i.imgur.com/0n2zqHD.png" width="140">
+  <a href="#CHANGE_GOOGLE_PLAY_STORE_LINK">
+    <img alt="Get it on Google Play" title="Google Play" src=".github/assets/get-on-google-play.png" width="140">
   </a>
 
-  <a href="#CHANGE_GOOGLE_PLAY_STORE_LINK">
-    <img alt="Get it on Google Play" title="Google Play" src="http://i.imgur.com/mtGRPuM.png" width="140">
+  <a href="#CHANGE_ITUNES_APP_STORE_LINK">
+    <img alt="Download on the App Store" title="App Store" src=".github/assets/get-on-app-store.png" width="140">
   </a>
 </p>
 

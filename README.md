@@ -43,6 +43,7 @@ It serves as a start point to your new app.
 
 ## 📖 Usage
 
+- Install [Yarn 1](https://classic.yarnpkg.com).
 - Create a new repository and copy the remote url, the one that ends with `.git`.
 - Run:
   ```

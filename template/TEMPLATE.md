@@ -45,21 +45,77 @@ Under `Branches` and a new rule for `main` and `beta`:
 
 ### Secrets
 
-The actions uses the following secrets:
+The actions uses a number of secrets described bellow, you can install the [github CLI](https://cli.github.com/) and run the commands to automagically set/update them.
+
+Release type (⚠️At least one must be `true` to run the [android](.github/workflows/android.yml) workflow):
+- `UPLOAD_TO_RELEASE` set to `true` to build APK and upload to releases page
+  ```sh
+  gh secret set UPLOAD_TO_RELEASE -b "true"
+  ```
+- `UPLOAD_TO_GOOGLE` set to `true` to build AAB and upload to google play
+  ```sh
+  gh secret set UPLOAD_TO_GOOGLE -b "false"
+  ```
 
 GitHub:
 - `PERSONAL_TOKEN` token with access to repo and workflows;
+  ```sh
+  gh secret set PERSONAL_TOKEN -b "PASTE_TOKEN"
+  ```
 
 Git GPG key, find out more [here](https://github.com/crazy-max/ghaction-import-gpg):
 - `GPG_PRIVATE_KEY` to verify commits and tags;
+  ```sh
+  gpg --armor --export-secret-key YOUR@EMAIL.COM | gh secret set GPG_PRIVATE_KEY
+  ```
 - `GPG_PASSPHRASE` to authenticate the gpg;
+  ```sh
+  gh secret set GPG_PASSPHRASE -b "PASTE_GPG_PASSPHRASE"
+  ```
 
 App Signing config:
-- `RELEASE_JKS` get using: `openssl base64 -in android/app/release.jks`;
+- `RELEASE_JKS` keystore that signs the app:
+  ```sh
+  openssl base64 -in android/app/release.jks | gh secret set RELEASE_JKS
+  ```
 - `RELEASE_KEY_ALIAS` the alias used to sign the keystore;
+  ```sh
+  gh secret set RELEASE_KEY_ALIAS -b "PASTE_KEY_ALIAS"
+  ```
 - `RELEASE_KEY_PASSWORD` the password used for both the alias and the keystore;
-- `GOOGLE_SERVICES` get using: `openssl base64 -in android/app/google-services.json`;
+  ```sh
+  gh secret set RELEASE_KEY_PASSWORD -b "PASTE_KEY_PASSWORD"
+  ```
+
+Google Play:
+- `GOOGLE_SERVICES` config file for google services:
+  ```sh
+  openssl base64 -in android/app/google-services.json | gh secret set GOOGLE_SERVICES
+  ```
+- `GOOGLE_PLAY_SERVICE_ACCOUNT` config file that allows upload to Google Play:
+  ```sh
+  openssl base64 -in pc-api-0000000000000000000-123-000000000000.json | gh secret set GOOGLE_PLAY_SERVICE_ACCOUNT
+  ```
 
 Dotenv:
-- `DOTENV_STAGING` get using: `openssl base64 -in .env.staging`;
-- `DOTENV_PROD` get using: `openssl base64 -in .env.production`;
+- `DOTENV_STAGING` dotenv file used during **staging** builds:
+  ```sh
+  openssl base64 -in .env.staging | gh secret set DOTENV_STAGING
+  ```
+- `DOTENV_PROD` dotenv file used during **production** builds:
+  ```sh
+  openssl base64 -in .env.production | gh secret set DOTENV_PROD
+  ```
+
+You can edit the commands bellow and set/update the main secrets in one go:
+
+```sh
+gh secret set PERSONAL_TOKEN -b "PASTE_TOKEN"
+gh secret set UPLOAD_TO_RELEASE -b "true"
+gh secret set UPLOAD_TO_GOOGLE -b "false"
+gh secret set RELEASE_KEY_ALIAS -b "PASTE_KEY_ALIAS"
+gh secret set RELEASE_KEY_PASSWORD -b "PASTE_KEY_PASSWORD"
+openssl base64 -in android/app/release.jks | gh secret set RELEASE_JKS
+gh secret set GPG_PASSPHRASE -b "PASTE_GPG_PASSPHRASE"
+gpg --armor --export-secret-key YOUR@EMAIL.COM | gh secret set GPG_PRIVATE_KEY
+```

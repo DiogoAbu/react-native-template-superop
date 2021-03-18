@@ -139,7 +139,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.helloworld"
+        applicationId "com.bundlehelloidworld.helloworld"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         multiDexEnabled true

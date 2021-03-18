@@ -1,4 +1,4 @@
-package com.helloworld;
+package com.bundlehelloidworld.helloworld;
 
 import android.os.Bundle;
 import android.content.res.Configuration;

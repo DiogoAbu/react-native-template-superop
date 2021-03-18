@@ -163,7 +163,7 @@ jobs:
         uses: DiogoAbu/upload-google-play@053164334a899567ff29ea0e7201f215017e91b4
         if: env.UPLOAD_TO_GOOGLE == 'true'
         with:
-          packageName: com.helloworld
+          packageName: com.bundlehelloidworld.helloworld
           releaseFiles: ./android/app/build/outputs/bundle/release/*.aab
           mappingFile: ./android/app/build/outputs/mapping/release/mapping.txt
           serviceAccountJson: ./google-play-service-account.json

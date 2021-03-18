@@ -29,6 +29,8 @@
 This is a React Native Template that comes pre-configured with tons of stuff.
 It serves as a start point to your new app.
 
+![Usage example](.github/assets/example.gif)
+
 ## 🎨 Features
 
 - Usage directly within the [React Native CLI](https://github.com/react-native-community/cli)

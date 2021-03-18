@@ -19,7 +19,7 @@ When contributing to this repository, please first discuss the change you wish t
 ### Building a release variant
 To build a release variant of the app you need to fill the `.env` with the correct info.
 ```ini
-RELEASE_KEY_ALIAS=the alias used when creating the store. default: com.helloworld
+RELEASE_KEY_ALIAS=the alias used when creating the store. default: HelloWorld
 RELEASE_KEY_PASSWORD=the password used for both the alias and the keystore
 ```
 Then run:

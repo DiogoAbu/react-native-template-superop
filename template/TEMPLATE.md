@@ -18,7 +18,7 @@ Get a 16 byte url-safe password [here](https://generate.plus/en/base64) and use 
 
 Create keystore:
 ```sh
-"%JAVA_HOME%\bin\keytool" -genkeypair -v -keystore android/app/release.keystore -alias com.helloworld -keyalg RSA -keysize 2048 -validity 10000
+"%JAVA_HOME%\bin\keytool" -genkeypair -v -keystore android/app/release.keystore -alias HelloWorld -keyalg RSA -keysize 2048 -validity 10000
 ```
 Convert to new standard:
 ```sh

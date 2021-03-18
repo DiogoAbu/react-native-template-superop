@@ -29,6 +29,8 @@
 This is a React Native Template that comes pre-configured with tons of stuff.
 It serves as a start point to your new app.
 
+Checkout the [repo](https://github.com/DiogoAbu/awesome-app) of the example gif below:
+
 ![Usage example](.github/assets/example.gif)
 
 ## 🎨 Features

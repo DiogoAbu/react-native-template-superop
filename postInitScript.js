@@ -15,7 +15,7 @@ const exec = util.promisify(require('child_process').exec);
 
 const rootDir = process.cwd();
 
-const gitRemoteRegex = /((git|ssh|http(s)?)|(git@[\w.]+))(:(\/\/)?)([\w.@:/-~]+)(\.git)(\/)?/u;
+const gitRemoteRegex = /((git|ssh|http(s)?)|(git@[\w.]+))(:(\/\/)?)([\w.@:/\-~]+)(\.git)(\/)?/;
 
 const bundleIdRegex = /^[a-z0-9.]{1,155}$/u;
 const bundlePlaceholderId = 'bundlehelloidworld';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { fireEvent, render, waitFor } from '@testing-library/react-native';
+import { render, waitFor } from '@testing-library/react-native';
 
 import App from '../src/App';
 
@@ -9,15 +9,6 @@ it('renders/navigates throughout app screens', async () => {
   const { getByText } = render(<App />);
 
   // Check what is rendered
-  const welcomeText = getByText(/Welcome to HelloWorld/i);
+  const welcomeText = await waitFor(() => getByText(/Welcome to HelloWorld/i));
   expect(welcomeText).not.toBeNull();
-
-  // Change screen
-  fireEvent.press(getByText(/#0/i));
-
-  await waitFor(() => {
-    // Check what is rendered
-    const indexText = getByText(/Index #/i);
-    expect(indexText.props.children).toEqual(['Index #', 0]);
-  });
 });

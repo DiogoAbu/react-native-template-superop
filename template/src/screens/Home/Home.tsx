@@ -21,7 +21,7 @@ const Home: FC = () => {
       ListHeaderComponent={
         <>
           <View style={styles.headerContent}>
-            <Text style={styles.headerText}>Welcome to TestApp!</Text>
+            <Text style={styles.headerText}>Welcome to HelloWorld!</Text>
           </View>
 
           <Separator />

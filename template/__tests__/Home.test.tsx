@@ -10,6 +10,7 @@ import Home from '!/screens/Home/Home';
 jest.mock('@react-navigation/core', () => ({
   createNavigatorFactory: jest.fn(),
   useNavigation: jest.fn(),
+  useFocusEffect: jest.fn(),
 }));
 
 jest.mock('@react-navigation/stack', () => ({
@@ -32,10 +33,10 @@ it('renders correctly', async () => {
   }));
 
   // Render component
-  const { getByText } = render(<Home />);
+  const { findByText } = render(<Home />);
 
   // Get pressable and press it
-  const pressable = await waitFor(() => getByText(/#0/i));
+  const pressable = await findByText(/#0/i);
   fireEvent.press(pressable);
 
   // Check if navigated

@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { render, waitFor } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 
 import App from '../src/App';
 
 it('renders/navigates throughout app screens', async () => {
   // Render component
-  const { getByText } = render(<App />);
+  const { findByText } = render(<App />);
 
   // Check what is rendered
-  const welcomeText = await waitFor(() => getByText(/Welcome to HelloWorld/i));
+  const welcomeText = await findByText(/Welcome to HelloWorld/i);
   expect(welcomeText).not.toBeNull();
 });

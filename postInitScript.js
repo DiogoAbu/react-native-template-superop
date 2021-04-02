@@ -36,7 +36,7 @@ const bundlePlaceholderId = 'bundlehelloidworld';
     await exec('git init');
 
     // Install necessary deps
-    await exec('npx install-peerdeps --yarn --dev eslint-config-superop');
+    await exec('yarn');
 
     // Make first commit
     await exec('git add .');

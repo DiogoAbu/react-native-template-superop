@@ -27,13 +27,12 @@
     "lint": "yarn eslint && yarn prettier",
     "lint-fix": "yarn eslint --fix && yarn prettier --write",
     "rn-version": "react-native-version --generate-build --never-amend --skip-tag",
-    "fix-lockfile": "node ./scripts/fix-lockfile.js",
     "postinstall": "patch-package && npx jetify"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn fix-lockfile && lint-staged && yarn typecheck && yarn test --forceExit --silent --onlyChanged",
+      "pre-commit": "npx yarn-lock-fix && lint-staged && yarn typecheck && yarn test --forceExit --silent --onlyChanged",
       "post-commit": "git update-index --again",
       "pre-push": "git fetch --prune origin \"+refs/tags/*:refs/tags/*\""
     }

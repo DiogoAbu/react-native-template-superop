@@ -5,20 +5,19 @@
   "files": [
     "template",
     "template.config.js",
-    "postInitScript.js"
+    "post-init-script.js"
   ],
   "scripts": {
     "eslint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0 --config ./.eslintrc",
     "prettier": "prettier .releaserc.json \".vscode/**/*.json\" \"**/*.{json,eslintrc,prettierrc}\" --config ./.prettierrc --check",
     "lint": "yarn eslint && yarn prettier",
     "lint-fix": "yarn eslint --fix && yarn prettier --write",
-    "fix-lockfile": "node ./scripts/fix-lockfile.js",
     "postinstall": "patch-package || exit 0"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn fix-lockfile && lint-staged",
+      "pre-commit": "npx yarn-lock-fix && lint-staged",
       "post-commit": "git update-index --again",
       "pre-push": "git fetch --prune origin \"+refs/tags/*:refs/tags/*\""
     }

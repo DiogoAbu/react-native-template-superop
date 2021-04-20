@@ -23,7 +23,7 @@
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "eslint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0 --config ./.eslintrc",
-    "prettier": "prettier .releaserc.json \".vscode/**/*.json\" \"**/*.{json,eslintrc,prettierrc}\" --config ./.prettierrc --check",
+    "prettier": "prettier \"**/{*,}.{json,eslintrc,prettierrc}\" --config ./.prettierrc --check",
     "lint": "yarn eslint && yarn prettier",
     "lint-fix": "yarn eslint --fix && yarn prettier --write",
     "rn-version": "react-native-version --generate-build --never-amend --skip-tag",
